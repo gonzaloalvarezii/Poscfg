@@ -1,0 +1,15 @@
+RESTAURAR BACKUP SQLCMD:
+
+#COMO SA:
+
+RESTORE DATABASE poscfg FROM DISK = N'/tmp/poscfg_20200911;
+GO
+USE poscfg
+GO
+CREATE USER adminposcfg for login adminposcfg;
+GO
+ALTER LOGIN adminposcfg with PASSWORD = N'Reso2020!!'
+GO
+exec sp_addrolemember 'db_owner', 'adminposcfg';
+GO
+EXEC  sp_change_users_login @Action='update_one', @UserNamePattern='adminposcfg',@LoginName='adminposcfg';

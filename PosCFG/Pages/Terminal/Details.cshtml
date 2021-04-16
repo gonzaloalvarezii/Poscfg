@@ -1,0 +1,156 @@
+﻿@page "{Terminalid}"
+@model PosCFG.Pages.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<br />
+<div>
+    <h4>Terminal</h4>
+    <br />
+    <hr />
+    <dl class="row">
+        <br />
+        <dt class="col-sm-2">
+            @Html.Label("Terminal ID: ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.TerminalID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Nro de Serie (HW)")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.SerialNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Suspend: ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Suspend)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("ParmConnTime: ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.ParmConnectTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Nombre del Comercio: ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Dirección: ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("RUT : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom3)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("VISANET : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom4)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("FIRSTDATA : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom5)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("OCA : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom6)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("CREDITOS DIRECTOS : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom7)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("CABAL U$ (PESOS): ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom8)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("CABAL U$S (DOLARES): ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom19)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("CREDITEL : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom9)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("PASSCARD : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom10)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("EDENRED : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom11)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("ANDA : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom12)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("AMEX : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom13)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("CLUB DEL ESTE : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom14)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("MIDES : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom15)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("BROU : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom16)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("TranConnectTime : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.TranConnectTime)
+        </dd>
+
+    </dl>
+</div>
+<br />
+<br />
+<div>
+    <a asp-page="./Edit" asp-route-Terminalid="@Model.Terminals.TerminalID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
+<br />

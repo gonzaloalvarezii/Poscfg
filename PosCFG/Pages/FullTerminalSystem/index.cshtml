@@ -1,0 +1,66 @@
+﻿@page
+@model PosCFG.Pages.FullTerminalSystem.indexModel
+
+
+<br />
+<h1>Terminal </h1>
+<br />
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.listTerminals[0].TerminalID)*@
+                    @Html.Label(" Terminal ID ")
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.listTerminals[0].SerialNumber)*@
+                    @Html.Label(" Nro de Serie (HW) ")
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.listTerminals[0].Custom1)*@
+                    @Html.Label(" Nombre del Comercio ")
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.listTerminals[0].Custom2)*@
+                    @Html.Label(" Dirección ")
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.listTerminals[0].Custom3)*@
+                    @Html.Label(" RUT ")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var t in Model.listTerminals)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => t.TerminalID)
+                    </td>
+                    <td> 
+                        @Html.DisplayFor(modelItem => t.SerialNumber)
+                    </td>
+                    <td> 
+                        @Html.DisplayFor(modelItem => t.Custom1)
+                    </td>
+                    <td> 
+                        @Html.DisplayFor(modelItem => t.Custom2)
+                    </td>
+                    <td> 
+                        @Html.DisplayFor(modelItem => t.Custom3)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-Terminalid="@t.TerminalID">Editar</a> |
+                        <a asp-page="./Details" asp-route-Terminalid="@t.TerminalID">Detalles</a> |
+                       <button type="submit" asp-page-handler="Delete" onclick="return confirm('Desea Eliminar el Terminal : @t.TerminalID ? ')"
+                                asp-route-Terminalid="@t.TerminalID" >Eliminar
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-page="Create">Crear nuevo</a>
+<br />
+</form>

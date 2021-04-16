@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "8c5453f9-3ca1-4fac-acd8-4a7a08df0d44",
+		"name": "PosCFG API Copy",
+		"description": "PosCFG API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Terminals External",
+					"item": [
+						{
+							"name": "/api/TerminalsExternal",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/TerminalsExternal",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"TerminalsExternal"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/TerminalsExternal",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"TerminalsExternal"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/api/TerminalsExternal",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"terminalID\": \"<string>\",\n    \"custom1\": \"<string>\",\n    \"custom3\": \"<string>\",\n    \"custom5\": \"<string>\",\n    \"custom9\": \"<string>\",\n    \"custom10\": \"<string>\",\n    \"controlGroup\": \"<integer>\",\n    \"id_jpos_pft\": \"<boolean>\",\n    \"value_pft\": \"<string>\",\n    \"id_jpos_ca\": \"<boolean>\",\n    \"value_ca\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/TerminalsExternal",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"TerminalsExternal"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"terminalID\": \"<string>\",\n    \"custom1\": \"<string>\",\n    \"custom3\": \"<string>\",\n    \"custom5\": \"<string>\",\n    \"custom9\": \"<string>\",\n    \"custom10\": \"<string>\",\n    \"controlGroup\": \"<integer>\",\n    \"id_jpos_pft\": \"<boolean>\",\n    \"value_pft\": \"<string>\",\n    \"id_jpos_ca\": \"<boolean>\",\n    \"value_ca\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/TerminalsExternal",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"TerminalsExternal"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/api/TerminalsExternal/:id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/TerminalsExternal/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"TerminalsExternal",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required) "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/TerminalsExternal/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"TerminalsExternal",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"terminalID\": \"nostrud nulla in\",\n \"serialNumber\": \"Duis laboris\",\n \"custom1\": \"qui mollit\",\n \"custom2\": \"consequat dolore\",\n \"custom3\": \"consequat minim et cillum irure\",\n \"custom4\": \"elit eiusmod proident\",\n \"custom5\": \"commodo velit aliq\",\n \"custom6\": \"est\",\n \"custom7\": \"dolore anim consequat fugiat\",\n \"custom8\": \"Du\",\n \"custom9\": \"dolore esse\",\n \"custom10\": \"consequat minim in\",\n \"custom11\": \"id tempor\",\n \"custom12\": \"esse eu ullamco\",\n \"controlGroup\": -99877923,\n \"connectGroup\": -97099107,\n \"id_jpos\": \"dolor\",\n \"value\": \"in adipisicing laboris\"\n}"
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "baseUrl",
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,46 @@
+﻿@page
+@model PosCFG.Pages.SystemPOS.IndexModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h1>System</h1>
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SystemPosS[0].TerminalID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SystemPosS[0].TerminalChecksum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SystemPosS[0].ControlGroup)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sys in Model.SystemPosS)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => sys.TerminalID)
+                    </td>
+                    <td> 
+                        @Html.DisplayFor(modelItem => sys.TerminalChecksum)
+                    </td>
+                    <td> 
+                        @Html.DisplayFor(modelItem => sys.ControlGroup)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-Terminalid="@sys.TerminalID">Edit</a> |
+                        <a asp-page="./Details" asp-route-Terminalid="@sys.TerminalID">Details</a> |
+                        <button type="submit" asp-page-handler="delete"
+                                asp-route-Terminalid="@sys.TerminalID">delete
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-page="Create">Create New</a>
+</form>

@@ -1,0 +1,74 @@
+@page
+@model PosCFG.Pages.Terminal.TerminalModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Terminales";
+}
+<h1>Terminals</h1>
+
+
+
+
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <a asp-page="./Index" asp-route-sortOrder="@Model.TerminalIDSort">
+                    @Html.DisplayNameFor(model => model.Terminals[0].TerminalID)
+                </a>
+
+                </th>
+
+                <th>
+                    SerialNumber
+                </th>
+                <th>
+                    <a asp-page="./Index" asp-route-sortOrder="@Model.NombreSort">
+                    Nombre
+                    </a> 
+                </th>
+                <th>
+                    <a asp-page="./Index" asp-route-sortOrder="@Model.DireccionSort">
+                    Direccion1
+                    </a>    
+                    
+                </th>
+
+                <th>RUT</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+
+            <h3>Msg: @Model.Message</h3>
+            @foreach (var terminal in Model.Terminals)
+            {
+                <tr>
+                    <td> 
+                        @Html.DisplayFor(modelItem => terminal.TerminalID)
+                    </td>
+                    <td> 
+                        @terminal.SerialNumber
+                     </td>
+                     <td> 
+                        @Html.DisplayFor(modelItem => terminal.Custom1)
+                     </td>
+
+                      <td> @terminal.Custom2</td>
+                      <td> @terminal.Custom3 </td>
+                        
+                         
+                    <td>
+                        <a asp-page="./Edit" asp-route-TerminalID="@terminal.TerminalID">Editar</a> |
+                        <a asp-page="./Details" asp-route-TerminalID="@terminal.TerminalID">Details</a> |
+                        <button type="submit" asp-page-handler="delete"
+                                asp-route-Terminalid="@terminal.TerminalID">Eliminar
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-page="Create">Create New</a>
+</form>

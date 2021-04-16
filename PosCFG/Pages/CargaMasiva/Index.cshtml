@@ -1,0 +1,84 @@
+﻿@page "{id:int?}"
+@model PosCFG.Pages.CargaMasiva.IndexModel
+@{
+    ViewData["Title"] = "Carga Masiva";
+}
+@section scripts{ 
+                    <script type="text/javascript">
+                                        function ultimos8Valores(input1, id) {
+                                            var input2 = document.getElementById(id);
+                                            var last = input1.value;
+                                            var last8 = last.substr(last.length -8);
+                                            input2.value = last8;
+                                        }
+                    </script>
+}
+
+<br />
+<h1>Carga Masiva AUX </h1>
+<br />
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.Label("ID")
+                </th>
+                <th>
+                    @Html.Label("Nro de Serie (HW)")
+                </th>
+                <th>
+                    @Html.Label("Terminal ID")
+                </th>
+                <th>
+                    @Html.Label("Nombre del Comercio")
+                </th>
+                <th>
+                    @Html.Label("Dirección")
+                </th>
+                <th>
+                    @Html.Label("RUT")
+                </th>
+                <th>
+                    @Html.Label("ControlGroup")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var t in Model.listTerminalsAux)
+            {
+                
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => t.id)
+                    </td>
+                    <td>
+                        <input asp-for="fullTerminalSystemAUX.SerialNumber" id="myInput1" class="form-control" onchange="ultimos8Valores(this, @t.id)" placeholder="nro serie" />
+                    </td>
+                    <td>
+                        <input asp-for="fullTerminalSystemAUX.TerminalID" id="@t.id" class="form-control" readonly />
+                    </td>
+                    <td> 
+                           @Html.DisplayFor(modelItem => t.Custom1)
+                    </td>
+                    <td> 
+                        @Html.DisplayFor(modelItem => t.Custom2)
+                    </td>
+                    <td> 
+                        @Html.DisplayFor(modelItem => t.Custom3)
+                    </td>
+                    <td> 
+                        @Html.DisplayFor(modelItem => t.ControlGroup)
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-primary btn-sm" asp-page-handler="Save"  onclick="return confirm('Desea Crear la Terminal : @t.id ? ')"
+                                asp-route-id="@t.id" >Crear
+                        </button> 
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-page="Create">Crear nuevo</a>
+<br />
+</form>

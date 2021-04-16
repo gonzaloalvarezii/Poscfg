@@ -1,0 +1,15 @@
+mysql -u jpos -p jpos_resonance_dev
+A.R3villa4
+
+
+
+mysql> describe sysconfig;
++-----------+---------------+------+-----+---------+-------+
+| Field     | Type          | Null | Key | Default | Extra |
++-----------+---------------+------+-----+---------+-------+
+| id        | varchar(64)   | NO   | PRI | NULL    |       |
+| readPerm  | varchar(64)   | YES  |     | NULL    |       |
+| value     | varchar(8192) | YES  |     | NULL    |       |
+| writePerm | varchar(64)   | YES  |     | NULL    |       |
++-----------+---------------+------+-----+---------+-------+
+4 rows in set (0.45 sec)

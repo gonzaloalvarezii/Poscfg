@@ -1,0 +1,106 @@
+﻿@page "{Terminalid}"
+@model PosCFG.Pages.SystemPOS.editModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>System</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SystemPosS.TerminalID" />
+
+            <div class="form-group">
+                <label asp-for="SystemPosS.TerminalID" class="control-label"></label>
+                @*<dt class="col-sm-2">@Html.DisplayNameFor(model => model.SystemPosS.TerminalID)</dt> *@ 
+                <dt class="col-sm-2"></dt>@Html.DisplayFor(model => model.SystemPosS.TerminalID)</dt>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SystemPosS.TerminalChecksum" class="control-label"></label>
+                <input asp-for="SystemPosS.TerminalChecksum" class="form-control" />
+                <span asp-validation-for="SystemPosS.TerminalChecksum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SystemPosS.ControlGroup" class="control-label"></label>
+                <input asp-for="SystemPosS.ControlGroup" class="form-control" />
+                <span asp-validation-for="SystemPosS.ControlGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SystemPosS.ControlCheckSum" class="control-label"></label>
+                <input asp-for="SystemPosS.ControlCheckSum" class="form-control" />
+                <span asp-validation-for="SystemPosS.ControlCheckSum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SystemPosS.ParameterGroup" class="control-label"></label>
+                <input asp-for="SystemPosS.ParameterGroup" class="form-control" />
+                <span asp-validation-for="SystemPosS.ParameterGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SystemPosS.ParameterReload" class="control-label"></label>
+                <input asp-for="SystemPosS.ParameterReload" class="form-control" />
+                <span asp-validation-for="SystemPosS.ParameterReload" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SystemPosS.ParameterVersion" class="control-label"></label>
+                <input asp-for="SystemPosS.ParameterVersion" class="form-control" />
+                <span asp-validation-for="SystemPosS.ParameterVersion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SystemPosS.ProgramID" class="control-label"></label>
+                <input asp-for="SystemPosS.ProgramID" class="form-control" />
+                <span asp-validation-for="SystemPosS.ProgramID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SystemPosS.ProgramReload" class="control-label"></label>
+                <input asp-for="SystemPosS.ProgramReload" class="form-control" />
+                <span asp-validation-for="SystemPosS.ProgramReload" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SystemPosS.ProgramVersion" class="control-label"></label>
+                <input asp-for="SystemPosS.ProgramVersion" class="form-control" />
+                <span asp-validation-for="SystemPosS.ProgramVersion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SystemPosS.Paquete" class="control-label"></label>
+                <input asp-for="SystemPosS.Paquete" class="form-control" />
+                <span asp-validation-for="SystemPosS.Paquete" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SystemPosS.ConnectGroup" class="control-label"></label>
+                <input asp-for="SystemPosS.ConnectGroup" class="form-control" />
+                <span asp-validation-for="SystemPosS.ConnectGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SystemPosS.ParmConnChecksum" class="control-label"></label>
+                <input asp-for="SystemPosS.ParmConnChecksum" class="form-control" />
+                <span asp-validation-for="SystemPosS.ParmConnChecksum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SystemPosS.TranConnChecksum1" class="control-label"></label>
+                <input asp-for="SystemPosS.TranConnChecksum1" class="form-control" />
+                <span asp-validation-for="SystemPosS.TranConnChecksum1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SystemPosS.TranConnChecksum2" class="control-label"></label>
+                <input asp-for="SystemPosS.TranConnChecksum2" class="form-control" />
+                <span asp-validation-for="SystemPosS.TranConnChecksum2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

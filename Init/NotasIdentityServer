@@ -1,0 +1,204 @@
+PS /home/admin/poscfgterm> dotnet new is4empty -n IdentityServer
+https://identityserver4.readthedocs.io/en/latest/quickstarts/1_client_credentials.html
+dotnet new web -n IdentityApi
+cd IdentityApi
+dotnet add IdentityApi.csproj package Microsoft.AspNetCore.Authentication.JwtBearer
+
+
+openssl s_client -connect localhost:5001 -showcerts < /dev/null 2> /dev/null | sed -n '/-----BEGIN/,/-----END/p' > localhost.pem
+sudo mv localhost.cer /etc/pki/ca-trust/source/anchors/localhost.pem
+sudo update-ca-trust  //ESTO NO ME FUNCIONA no lo agrega al truststore de Fedora.
+
+workaround
+
+sudo -i
+chmod 644 /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+vi /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+Agregar el certificado de Kestral
+chmod 444 /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
+
+// Si se vuelve a ejecutar update-cert-trusts , se borra el certificado
+
+
+dotnet new is4ui 
+dotnet add package Microsoft.AspNetCore.Authentication.OpenIdConnect
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet add package IdentityServer4.EntityFramework
+
+dotnet tool install --global dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+dotnet ef migrations add InitialIdentityServerPersistedGrantDbMigration -c PersistedGrantDbContext -o Data/Migrations/IdentityServer/PersistedGrantDb
+dotnet ef migrations add InitialIdentityServerConfigurationDbMigration -c ConfigurationDbContext -o Data/Migrations/IdentityServer/ConfigurationDb
+
+
+USE IdentityServer
+GO
+CREATE LOGIN app_identity WITH PASSWORD = 'P4ssw0rd';
+CREATE USER app_identity for login app_identity;
+GO
+
+USE IdentityServer
+GO
+exec sp_addrolemember 'db_owner', 'app_identity';
+GO
+
+
+
+
+***********************************************************************************
+PS /home/admin/poscfgterm> dotnet new is4aspid -n IdentityServerAspNetIdentity
+Do you want to run this action (Y|N)?
+Y
+#Esto por defecto usa SQLite
+
+CREATE DATABASE IdentityUsers;
+GO
+USE IdentityUsers;
+GO
+CREATE LOGIN identity_user WITH PASSWORD = 'P4ssw0rd';
+CREATE USER identity_user for login identity_user;
+GO
+USE IdentityUsers
+GO
+exec sp_addrolemember 'db_owner', 'identity_user';
+GO
+
+
+Server='devsqlsrv';Database='IdentityServer';User Id='app_identity';Password='P4ssw0rd'
+
+
+
+##Borrar todas las migrations
+dotnet ef database update 0
+dotnet ef migrations remove
+
+
+##Crear y actualizar esquema a partir de Model
+dotnet ef migrations add InitialCreate -o Data/Migrations/
+dotnet ef database update
+
+
+##POPULAR LAS TABLAS
+dotnet run ./Program.cs /seed
+
+
+    "ClientId": "webui",
+    "ClientSecret": "KXVEDhPXI22NojUG8teMXWM9uS",
+
+
+
+ADMINUI
+========
+https://github.com/skoruba/IdentityServer4.Admin
+dotnet new -i Skoruba.IdentityServer4.Admin.Templates::1.0.0-rc1-update2
+dotnet new skoruba.is4admin --name IdentityServerAdminUI --title ISAdmin --adminemail "admin@manih.tech" --adminpassword "ManiHS3vap4rriba" --adminrole Administrator --adminclientid webui --adminclientsecret KXVEDhPXI22NojUG8teMXWM9uS --dockersupport false
+
+
+
+
+ id_token
+
+
+BD Agregar Audit y Log:
+======================
+PS /home/admin/poscfgterm/IdentityServerAdminUI/src/IdentityServerAdminUI.Admin> dotnet ef database update --context AdminAuditLogDbContext
+PS /home/admin/poscfgterm/IdentityServerAdminUI/src/IdentityServerAdminUI.Admin> dotnet ef database update --context AdminLogDbContext
+
+
+
+Ejecutar solo ISAdmin:
+======================
+PS /home/admin/poscfgterm/IdentityServerAdminUI/src/IdentityServerAdminUI.Admin> dotnet run --launch-profile IdentityServerAdminUI.Admin
+
+
+hernan
+EgOZfsdkths+X9
+
+
+michel
+Q+aKvReV1FVwSuE
+
+
+
+dotnet ef migrations script --output "/tmp/script.sql" --context IdentityServerConfigurationDbContext
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+PS /home/admin/poscfgterm/IdentityServerAdminUI/src/IdentityServerAdminUI.Admin.EntityFramework.SqlServer> dotnet ef --startup-project ../IdentityServerAdminUI.Admin/IdentityServerAdminUI.Admin.csproj migrations  add ApiResourceClaims --context IdentityServerConfigurationDbContext
+
+
+
+ dotnet ef dbcontext scaffold "Server='devsqlsrv';Database='IdentityServer';User Id='app_identity';Password='P4ssw0rd';" Microsoft.EntityFrameworkCore.SqlServer -o Models
+
+
+
+NUEVO IDENTITY CON distintos nombres de tablas, para que funcione con ADMINUI:
+#############################################################################
+1> CREATE DATABASE IdentityServer4
+2> go
+1> USE IdentityServer4;
+2> go
+Changed database context to 'IdentityServer4'.
+1> CREATE USER app_identity for login app_identity
+2> go
+1> exec sp_addrolemember 'db_owner', 'app_identity'
+2> go
+
+dotnet ef migrations add IdentityServerCustomTableMigration -c PersistedGrantDbContext
+dotnet ef migrations add IdentityServerCustomTableMigration -c ConfigurationDbContext
+dotnet ef database update -c PersistedGrantDbContext
+dotnet ef database update -c ConfigurationDbContext
+
+# Descomentar Initialize(app) en Startup.cs IdentityServer, luego volver a comentar
+
+
+dotnet ef database update --context AdminAuditLogDbContext
+dotnet ef database update --context AdminLogDbContext
+
+
+
+Borron y cuenta nueva:
+
+dotnet ef database update 0  -c ConfigurationDbContext
+dotnet ef database update 0  -c PersistedGrantDbContext
+dotnet ef migrations remove  -c ConfigurationDbContext
+dotnet ef migrations remove  -c PersistedGrantDbContext
+
+
+Use IdentityServer4
+ALTER TABLE ApiScopes ADD CONSTRAINT df_Enabled DEFAULT 1 FOR Enabled
+ALTER TABLE ApiScopes ADD ApiResourceId int NOT NULL DEFAULT 3, CONSTRAINT [FK_ApiScopes_ApiResources_ApiResourceId] FOREIGN KEY ([ApiResourceId]) REFERENCES [ApiResources] ([Id]) ON DELETE CASCADE
+ALTER TABLE Clients ADD CONSTRAINT df_RequireRequestObject DEFAULT 0 FOR RequireRequestObject
+GO
+
+
+
+dotnet publish --configuration adminui IdentityServerAdminUI.Admin.csproj
+
+
+
+dotnet publish --configuration identityd
+
+
+BACKUP DATABASE [Name_of_Database] TO DISK=’X:PathToBackupLocation[Name_of_Database].bak'
+
+
+1> BACKUP DATABASE IdentityServer4 TO DISK='/tmp/IdentityServer4_20200719.bak'
+2> GO
+
+1> BACKUP DATABASE IdentityUsers TO DISK='/tmp/IdentityUsers_20200719.bak'
+2> GO
+
+
+
+
+
+
+
+
+
+
+
+
+

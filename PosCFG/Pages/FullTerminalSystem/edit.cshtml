@@ -1,0 +1,277 @@
+﻿@page "{Terminalid}"
+@model PosCFG.Pages.FullTerminalSystem.editModel
+
+@section scripts{ 
+
+<!--script>
+    $(function () {
+        $("#parametergroup").on("change", function() {
+            var parametergroup = $(this).val();
+            $("#paramversion").empty();
+            $("#paramversion").append("<option value=''>Seleccionar</option>");
+            $.getJSON(`?handler=ParameterVersions&parametergroup=${parametergroup}`, (data) => {
+                $.each(data, function (i, item) {
+                    $("#paramversion").append(`<option value="${item}">${item}</option>`);
+                });
+            });
+        });
+    });
+</script>
+<script>
+    $(function () {
+        $("#programid").on("change", function() {
+            var programId = $(this).val();
+            $("#programversion").empty();
+            $("#programversion").append("<option value=''>Seleccionar</option>");
+            $.getJSON(`?handler=ProgramVersions&programId=${programId}`, (data) => {
+                $.each(data, function (i, item) {
+                    $("#programversion").append(`<option value="${item}">${item}</option>`);
+                });
+            });
+        });
+    });
+</script-->
+
+}
+
+
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+<br/>
+<br/>
+<h4>Full Terminal</h4>
+<hr />
+<br/>
+<form method="post">
+    <div class="form-row">      
+        <div class="col-md-8">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="fullTerminalSystem.TerminalID" />
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="fullTerminalSystem.TerminalID" class="control-label">Terminal ID</label>
+                        <dt class="col-sm-2"></dt>@Html.DisplayFor(model => model.fullTerminalSystem.TerminalID)</dt>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <input type="hidden" asp-for="fullTerminalSystem.SerialNumber" />
+                        <label asp-for="fullTerminalSystem.SerialNumber" class="control-label">Nro de Serie (HW)</label>
+                        <dt class="col-sm-2"></dt>@Html.DisplayFor(model => model.fullTerminalSystem.SerialNumber)</dt>
+                    </div>
+                </div>
+            <!-- > RST-69 <-->
+          
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.HeaderLine1" class="control-label">Nombre del Comercio</label>
+                <input asp-for="fullTerminalSystem.HeaderLine1" class="form-control" onkeyup="this.value = this.value.toUpperCase();" maxlength="24"/>
+                <span asp-validation-for="fullTerminalSystem.HeaderLine1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.HeaderLine2" class="control-label">Dirección</label>
+                <input asp-for="fullTerminalSystem.HeaderLine2" class="form-control" onkeyup="this.value = this.value.toUpperCase();" maxlength="24"/>
+                <span asp-validation-for="fullTerminalSystem.HeaderLine2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.HeaderLine3" class="control-label">RUT</label>
+                <input asp-for="fullTerminalSystem.HeaderLine3" class="form-control" maxlength="12"/>
+                <span asp-validation-for="fullTerminalSystem.HeaderLine3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.Custom4" class="control-label">VISANET</label>
+                <input asp-for="fullTerminalSystem.Custom4" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.Custom4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.Custom5" class="control-label">FIRSTDATA</label>
+                <input asp-for="fullTerminalSystem.Custom5" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.Custom5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.Custom6" class="control-label">OCA</label>
+                <input asp-for="fullTerminalSystem.Custom6" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.Custom6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.Custom7" class="control-label">CREDITOS DIRECTOS</label>
+                <input asp-for="fullTerminalSystem.Custom7" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.Custom7" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.Custom8" class="control-label">CABAL U$ (PESOS)</label>
+                <input asp-for="fullTerminalSystem.Custom8" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.Custom8" class="text-danger"></span>
+            </div>
+            <div class="form-group">                
+                <label asp-for="fullTerminalSystem.Custom19" class="control-label">CABAL U$S (DOLARES)</label>
+                <input asp-for="fullTerminalSystem.Custom19" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.Custom19" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.Custom9" class="control-label">CREDITEL</label>
+                <input asp-for="fullTerminalSystem.Custom9" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.Custom9" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.Custom10" class="control-label">PASSCARD</label>
+                <input asp-for="fullTerminalSystem.Custom10" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.Custom10" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.Custom11" class="control-label">EDENRED</label>
+                <input asp-for="fullTerminalSystem.Custom11" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.Custom11" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.Custom12" class="control-label">ANDA</label>
+                <input asp-for="fullTerminalSystem.Custom12" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.Custom12" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.Custom13" class="control-label">AMEX</label>
+                <input asp-for="fullTerminalSystem.Custom13" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.Custom13" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.Custom14" class="control-label">CLUB DEL ESTE</label>
+                <input asp-for="fullTerminalSystem.Custom14" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.Custom14" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.Custom15" class="control-label">MIDES</label>
+                <input asp-for="fullTerminalSystem.Custom15" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.Custom15" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.Custom16" class="control-label">BROU</label>
+                <input asp-for="fullTerminalSystem.Custom16" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.Custom16" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="fullTerminalSystem.TerminalChecksum" class="control-label">Actualizar datos de Terminal</label>
+                        <input asp-for="fullTerminalSystem.TerminalChecksum" class="form-check-input" />
+                        <span asp-validation-for="fullTerminalSystem.TerminalChecksum" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.ConnectGroup" class="control-label">Connect Group</label>
+                <input asp-for="fullTerminalSystem.ConnectGroup" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.ConnectGroup" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="fullTerminalSystem.ParmConnChecksum" class="control-label">Actualizar parametros de conexión (ParmConnChecksum)</label>
+                    <input asp-for="fullTerminalSystem.ParmConnChecksum" class="form-check-input" />
+                    <span asp-validation-for="fullTerminalSystem.ParmConnChecksum" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.merchanType" class="control-label">Tipo de comercio</label>
+                <input asp-for="fullTerminalSystem.merchanType" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.merchanType" class="text-danger"></span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="fullTerminalSystem.ControlCheckSum" class="control-label">Actualizar Tipo Comercio (ControlChecksum)</label>
+                    <input asp-for="fullTerminalSystem.ControlCheckSum" class="form-check-input" />
+                    <span asp-validation-for="fullTerminalSystem.ControlCheckSum" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="fullTerminalSystem.ParameterGroup" class="control-label">Parameter Group</label>
+                        <input asp-for="fullTerminalSystem.ParameterGroup" class="form-control" /> 
+                        <span asp-validation-for="fullTerminalSystem.ParameterGroup" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="fullTerminalSystem.ParameterVersion" class="control-label">Parameter Versión</label>
+                        <input asp-for="fullTerminalSystem.ParameterVersion" id="paramversion" class="form-control"></input> 
+                        <span asp-validation-for="fullTerminalSystem.ParameterVersion" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="fullTerminalSystem.ParameterReload" class="control-label">Cargar parámetros de conexión (ParameterReload)</label>
+                    <input asp-for="fullTerminalSystem.ParameterReload" class="form-check-input" />
+                    <span asp-validation-for="fullTerminalSystem.ParameterReload" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="fullTerminalSystem.ProgramID" class="control-label">Program ID</label>
+                        <input asp-for="fullTerminalSystem.ProgramID" class="form-control" />
+                        <span asp-validation-for="fullTerminalSystem.ProgramID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="fullTerminalSystem.ProgramVersion" class="control-label">Program Versión</label>
+                        <input asp-for="fullTerminalSystem.ProgramVersion" id="programversion" class="form-control"></input>
+                        <span asp-validation-for="fullTerminalSystem.ProgramVersion" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="fullTerminalSystem.ProgramReload" class="control-label">Cargar programa</label>
+                    <input asp-for="fullTerminalSystem.ProgramReload" class="form-check-input" />
+                    <span asp-validation-for="fullTerminalSystem.ProgramReload" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.Paquete" class="control-label">Package Name</label>
+                <input asp-for="fullTerminalSystem.Paquete" class="form-control" />
+                <span asp-validation-for="fullTerminalSystem.Paquete" class="text-danger"></span>
+            </div>
+            
+            <label class="control-label">JPOS</label>
+
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.ca" class="control-label">CA (campo 43)</label>
+                <input asp-for="fullTerminalSystem.ca" class="form-control" maxlength="40"/>
+                <span asp-validation-for="fullTerminalSystem.ca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.mcc" class="control-label">MCC (campo 18)</label>
+                <input asp-for="fullTerminalSystem.mcc" class="form-control" maxlength="4" pattern="[A-Za-z0-9]+" title="Letras y números."/>
+                <span asp-validation-for="fullTerminalSystem.mcc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.pf_id" class="control-label">PF_ID (campo 104)</label>
+                <input asp-for="fullTerminalSystem.pf_id" class="form-control" maxlength="15" pattern="[A-Za-z0-9]+" title="Letras y números."/>
+                <span asp-validation-for="fullTerminalSystem.pf_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.visa_spnsrd_mercht" class="control-label">VISA SPNSRD</label>
+                <input asp-for="fullTerminalSystem.visa_spnsrd_mercht" class="form-control" maxlength="15" pattern="[A-Za-z0-9\s ]+" title="Letras y números."/>
+                <span asp-validation-for="fullTerminalSystem.visa_spnsrd_mercht" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.amex_id_comercio" class="control-label">AMEX Id Comercio</label>
+                <input asp-for="fullTerminalSystem.amex_id_comercio" class="form-control" maxlength="20" />
+                <span asp-validation-for="fullTerminalSystem.amex_id_comercio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fullTerminalSystem.enabled_JPOS" class="control-label">Activar Terminal JPOS</label>
+                <input asp-for="fullTerminalSystem.enabled_JPOS" class="form-check-input" />
+                <span asp-validation-for="fullTerminalSystem.enabled_JPOS" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-row">
+        <div class="col-md-2">    
+            <input type="submit" value="Salvar" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+
+<br />
+
+<div>
+    <a asp-page="Index">Volver a Lista Terminales</a>
+</div>

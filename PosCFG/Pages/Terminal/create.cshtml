@@ -1,0 +1,134 @@
+@page
+@model PosCFG.Pages.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Crear</h1>
+
+<h4>Terminal</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Terminal.TerminalID" class="control-label">Terminal ID</label>
+                <input asp-for="Terminal.TerminalID" class="form-control" />
+                <span asp-validation-for="Terminal.TerminalID" class="text-danger"></span>
+            </div>
+           <div class="form-group">
+                <label asp-for="Terminal.SerialNumber" class="control-label">Nro de Serie (HW)</label>
+                <input asp-for="Terminal.SerialNumber" class="form-control" />
+                <span asp-validation-for="Terminal.SerialNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Suspend" class="control-label">Suspend</label>
+                <input asp-for="Terminal.Suspend" class="form-control" />
+                <span asp-validation-for="Terminal.Suspend" class="text-danger"></span>
+            </div>
+         
+            <div class="form-group">
+                <label asp-for="Terminal.Custom1" class="control-label">Nombre del Comercio</label>
+                <input asp-for="Terminal.Custom1" class="form-control" onkeyup="this.value = this.value.toUpperCase();" maxlength="24" />
+                <span asp-validation-for="Terminal.Custom1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom2" class="control-label">Dirección</label>
+                <input asp-for="Terminal.Custom2" class="form-control" onkeyup="this.value = this.value.toUpperCase();" maxlength="24"/>
+                <span asp-validation-for="Terminal.Custom2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom3" class="control-label">RUT</label>
+                <input asp-for="Terminal.Custom3" class="form-control" maxlength="12"/>
+                <span asp-validation-for="Terminal.Custom3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom4" class="control-label">VISANET</label>
+                <input asp-for="Terminal.Custom4" class="form-control" />
+                <span asp-validation-for="Terminal.Custom4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom5" class="control-label">FIRSTDATA</label>
+                <input asp-for="Terminal.Custom5" class="form-control" />
+                <span asp-validation-for="Terminal.Custom5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom6" class="control-label">OCA</label>
+                <input asp-for="Terminal.Custom6" class="form-control" />
+                <span asp-validation-for="Terminal.Custom6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom7" class="control-label">CREDITOS DIRECTOS</label>
+                <input asp-for="Terminal.Custom7" class="form-control" />
+                <span asp-validation-for="Terminal.Custom7" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom8" class="control-label">CABAL U$ (PESOS)</label>
+                <input asp-for="Terminal.Custom8" class="form-control" />
+                <span asp-validation-for="Terminal.Custom8" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom19" class="control-label">CABAL U$S (DOLARES)</label>
+                <input asp-for="Terminal.Custom19" class="form-control" />
+                <span asp-validation-for="Terminal.Custom19" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom9" class="control-label">CREDITEL</label>
+                <input asp-for="Terminal.Custom9" class="form-control" />
+                <span asp-validation-for="Terminal.Custom9" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom10" class="control-label">PASSCARD</label>
+                <input asp-for="Terminal.Custom10" class="form-control" />
+                <span asp-validation-for="Terminal.Custom10" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom11" class="control-label">EDENRED</label>
+                <input asp-for="Terminal.Custom11" class="form-control" />
+                <span asp-validation-for="Terminal.Custom11" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom12" class="control-label">ANDA</label>
+                <input asp-for="Terminal.Custom12" class="form-control" />
+                <span asp-validation-for="Terminal.Custom12" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom13" class="control-label">AMEX</label>
+                <input asp-for="Terminal.Custom13" class="form-control" />
+                <span asp-validation-for="Terminal.Custom13" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom14" class="control-label">CLUB DEL ESTE</label>
+                <input asp-for="Terminal.Custom14" class="form-control" />
+                <span asp-validation-for="Terminal.Custom14" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom15" class="control-label">MIDES</label>
+                <input asp-for="Terminal.Custom15" class="form-control" />
+                <span asp-validation-for="Terminal.Custom15" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.Custom16" class="control-label">BROU</label>
+                <input asp-for="Terminal.Custom16" class="form-control" />
+                <span asp-validation-for="Terminal.Custom16" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Terminal.TranConnectTime" class="control-label">TranConnectTime</label>
+                <input asp-for="Terminal.TranConnectTime" class="form-control" />
+                <span asp-validation-for="Terminal.TranConnectTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

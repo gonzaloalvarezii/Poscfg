@@ -1,0 +1,216 @@
+﻿@page "{Terminalid}"
+@model PosCFG.Pages.FullTerminalSystem.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalles</h1>
+<br />
+<div>
+    <h4>Terminal</h4>
+    <br />
+    <hr />
+    <dl class="row">
+        <br />
+        <dt class="col-sm-2">
+            @Html.Label("Terminal ID: ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.TerminalID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Nro de Serie (HW)")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.SerialNumber)
+        </dd>
+        <!-- > RT-69 <-->
+        <dt class="col-sm-2">
+            @Html.Label("Parametro de conexión: ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.ParmConnectTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Nombre del Comercio: ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.HeaderLine1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Dirección: ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.HeaderLine2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("RUT : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.HeaderLine3)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("VISANET : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom4)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("FIRSTDATA : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom5)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("OCA : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom6)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("CREDITOS DIRECTOS : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom7)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("CABAL U$ (PESOS): ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom8)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("CABAL U$S (DOLARES): ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom19)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("CREDITEL : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom9)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("PASSCARD : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom10)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("EDENRED : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom11)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("ANDA : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom12)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("AMEX : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom13)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("CLUB DEL ESTE : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom14)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("MIDES : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom15)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("BROU : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Custom16)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Tipo comercio: ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.merchanType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Actualizar daros de terminal: ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.TerminalChecksum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("PArConnChecksum : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.ParmConnChecksum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Connect Group : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.ConnectGroup)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Actualizar tipo comercio : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.ControlCheckSum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Parameter Group : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.ParameterGroup)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Parameter Reload : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.ParameterReload)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Parameter Versión : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.ParameterVersion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Program ID : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.ProgramID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Program Versión : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.ProgramVersion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Cargar programa : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.ProgramReload)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.Label("Package name : ")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Terminals.Paquete)
+        </dd>
+    </dl>
+</div>
+<br />
+<br />
+<div>
+    <a asp-page="./Edit" asp-route-Terminalid="@Model.Terminals.TerminalID">Editar</a> |
+    <a asp-page="./Index">Volver a Lista Terminales</a>
+</div>
+<br />

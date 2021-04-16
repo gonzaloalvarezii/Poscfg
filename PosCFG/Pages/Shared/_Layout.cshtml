@@ -1,0 +1,81 @@
+﻿@model BaseModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <title>@ViewData["Title"]-PosCFG</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+        <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+    <link href="css/site.css" rel="stylesheet" media="all">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/FullTerminalSystem/index">PosCFG</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/FullTerminalSystem/create">Crear Terminal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/FullTerminalSystem/index">Lista Terminales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " asp-area="" asp-page="/CargaMasiva/index">Lista Carga Masiva</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/CargaMasiva/create">Crear Carga Masiva</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/poscfg/Account/Logout">Salir</a>
+                        </li>
+                    </ul>
+                <form asp-page="/FullTerminalSystem/index" method="get" class="form-inline mt-2 mt-md-0">
+                
+                    <input class="form-control mr-sm-2" type="text" name="SearchString" placeholder="Buscar" value="@Model.CurrentFilter" aria-label="Buscar">
+                
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    <!--<input class="btn btn-outline-success my-2 my-sm-0" value="Buscar" type="submit">-->
+                </form>
+            </div>
+        </nav>
+    </header>
+    
+        
+        <main role="main" class="container">
+
+            @RenderBody()
+        </main>
+ 
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - PosCFG - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
